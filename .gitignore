@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+
+# Buildozer
+.buildozer/
+bin/
+
+# Generated output
+output/
+*.apk
+*.aab
+
+# Secrets
+*.pem
+*.p12
+*.key
+token*.json
+*_token.json
+client_secret*.json
+credentials*.json
+
+# Termux
+nohup.out
