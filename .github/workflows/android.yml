@@ -8,29 +8,24 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
 
     steps:
-      - name: Checkout
+      - name: Checkout Inspired Shop
         uses: actions/checkout@v4
 
-      - name: Pull official Buildozer image
-        run: |
-          docker pull kivy/buildozer:latest
-
-      - name: Build APK
-        run: |
-          mkdir -p "$HOME/.buildozer"
-
-          docker run --rm \
-            --volume "$HOME/.buildozer":/home/user/.buildozer \
-            --volume "$GITHUB_WORKSPACE":/home/user/hostcwd \
-            kivy/buildozer:latest \
-            android debug
+      - name: Build APK with Buildozer
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+        with:
+          command: buildozer android debug
+          workdir: .
+          buildozer_version: stable
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: inspired-shop-debug-apk
-          path: bin/*.apk
+          path: ${{ steps.buildozer.outputs.filename }}
           if-no-files-found: error
