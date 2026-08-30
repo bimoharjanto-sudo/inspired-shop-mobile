@@ -28,6 +28,17 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Accept Android SDK licenses
+        run: |
+          yes | sdkmanager --licenses || true
+
+      - name: Install Android SDK Build Tools
+        run: |
+          sdkmanager "platform-tools" \
+                     "platforms;android-35" \
+                     "build-tools;35.0.0" \
+                     "build-tools;37.0.0"
+
       - name: Install Buildozer
         run: |
           python -m pip install --upgrade pip setuptools wheel
@@ -35,7 +46,6 @@ jobs:
 
       - name: Build APK
         run: |
-          yes | sdkmanager --licenses > /dev/null || true
           buildozer android debug
 
       - name: Upload APK
