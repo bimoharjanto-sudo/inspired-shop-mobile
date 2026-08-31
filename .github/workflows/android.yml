@@ -39,6 +39,11 @@ jobs:
             libltdl-dev \
             libssl-dev
 
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Create Python 3.11 environment
         run: |
           python3.11 -m venv .venv-build
