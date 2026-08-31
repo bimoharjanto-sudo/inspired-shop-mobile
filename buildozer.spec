@@ -15,7 +15,7 @@ source.include_exts = py,png,jpg,jpeg,kv,atlas
 version = 0.1.0
 
 # Dependency minimal
-requirements = python3,kivy
+requirements = python3==3.12.10,kivy==2.3.1
 
 # Orientation
 orientation = portrait
