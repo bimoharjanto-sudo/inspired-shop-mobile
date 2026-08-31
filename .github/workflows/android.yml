@@ -62,19 +62,6 @@ jobs:
             https://github.com/kivy/python-for-android.git \
             p4a-source
 
-          echo "=== P4A COMMIT ==="
-          cd p4a-source
-          git log -1 --oneline
-
-          echo "=== RECIPE FILES ==="
-          find pythonforandroid -type f | grep -E 'hostpython3|python3' | head -n 100
-
-          echo "=== PYTHON URL REFERENCES ==="
-          grep -R -n -E 'hostpython3|python-3\.11|python3.*url|url.*python' \
-            pythonforandroid 2>/dev/null | head -n 200
-
-          cd ..
-
           python --version
           python -m buildozer --version
 
