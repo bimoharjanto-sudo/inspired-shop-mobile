@@ -45,6 +45,8 @@ jobs:
           . .venv-build/bin/activate
           python -m pip install --upgrade pip setuptools wheel
           python -m pip install buildozer cython
+          python -m buildozer --version
+          python -m pip show buildozer cython
 
       - name: Build APK
         run: |
