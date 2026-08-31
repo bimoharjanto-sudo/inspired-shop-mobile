@@ -36,6 +36,7 @@ jobs:
             libncursesw5-dev \
             cmake \
             libffi-dev \
+            libltdl-dev \
             libssl-dev
 
       - name: Create Python 3.12 environment
