@@ -39,9 +39,9 @@ jobs:
             libltdl-dev \
             libssl-dev
 
-      - name: Create Python 3.12 environment
+      - name: Create Python 3.11 environment
         run: |
-          python3.12 -m venv .venv-build
+          python3.11 -m venv .venv-build
           . .venv-build/bin/activate
 
           python -m pip install --upgrade \
