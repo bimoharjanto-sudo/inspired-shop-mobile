@@ -69,7 +69,8 @@ jobs:
         run: |
           . .venv-build/bin/activate
 
-          buildozer -v android debug p4a.source_dir=$GITHUB_WORKSPACE/p4a-source p4a.python_version=3.11.9
+          rm -rf .buildozer
+          buildozer -v android debug p4a.source_dir=$GITHUB_WORKSPACE/p4a-source
 
 
       - name: Upload APK
